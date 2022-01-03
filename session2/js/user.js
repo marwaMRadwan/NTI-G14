@@ -9,13 +9,11 @@ const readDataFromStorage = () => {
     }
     return data
 }
-
 const setDataToStorage = (myData) => {
     if(!Array.isArray(myData)) myData=[]
     myData = JSON.stringify(myData)
     localStorage.setItem('users', myData)
 }
-
 const usersData = readDataFromStorage()
 const addUser = document.querySelector('#addUser')
 userMainHeads = [
@@ -25,7 +23,8 @@ userMainHeads = [
     {name:"gender", dataStore:"value",default:null, isDefault:false},
     {name:"isMarried", dataStore:"checked",default:null, isDefault:false},
 ]
-addUser.addEventListener("submit", function(e){
+if(addUser){
+    addUser.addEventListener("submit", function(e){
         e.preventDefault()
         const user = {}
         userMainHeads.forEach(head => {
@@ -36,4 +35,29 @@ addUser.addEventListener("submit", function(e){
         this.reset()
         setDataToStorage(usersData)
     })
+}
 
+
+const content= document.querySelector("#content")
+if(content){
+    if(usersData.length==0){
+        let tr= document.createElement('tr')
+        tr.classList="alert alert-danger text-center"
+        content.appendChild(tr)
+        let td = document.createElement('td')
+        td.textContent="No Users Yet"
+        td.setAttribute("colspan", 6)
+        tr.appendChild(td)
+}
+    else{
+        usersData.forEach(user=>{
+            let tr= document.createElement('tr')
+            content.appendChild(tr)
+            userMainHeads.forEach(head=>{
+                td= document.createElement('td')
+                td.textContent=user[head.name]
+                tr.appendChild(td)
+            })
+        })    
+    }
+}

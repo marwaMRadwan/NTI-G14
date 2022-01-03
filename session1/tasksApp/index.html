@@ -12,7 +12,24 @@
 <body>
     <section class="my-5 container">
         <button class="btn btn-primary" id="showHide" >Show</button>
-        <div class=" bg-success text-white d-none">hello</div>
+        <div class="border border-primary border-3 p-4 my-3 d-none">
+            <form>
+                <div class="mb-3">
+                    <input class="form-control" name="title">
+                </div>
+                <div class="mb-3">
+                    <textarea class="form-control" name="content"></textarea>
+                </div>
+                <div class="mb-3">
+                    <select class="form-control" name="type" id= "selectType">
+                        <option disabled selected>Choose Type</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <button class="btn btn-primary">add</button>
+                </div>
+            </form>
+        </div>
     </section>
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
