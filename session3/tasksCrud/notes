@@ -1,0 +1,4 @@
+users => create, update, show all users, delete user , show single user
+add.html => name, gender, email, married(true, false)
+edit.html
+index.html => table => users
