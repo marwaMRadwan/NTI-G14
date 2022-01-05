@@ -18,7 +18,7 @@ const content= document.querySelector("#content")
 const addUser = document.querySelector('#addUser')
 const single = document.querySelector("#single")
 const userMainHeads = [
-    {name:"id",dataStore:null,  default: Date.now(), isDefault:true},
+    {name:"id",dataStore:"value",  default: Date.now(), isDefault:true},
     {name:"username", dataStore:"value",default:null, isDefault:false},
     {name:"email", dataStore:"value",default:null, isDefault:false},
     {name:"gender", dataStore:"value",default:null, isDefault:false},
@@ -60,14 +60,14 @@ drawItems = () =>{
         createMyOwnElement('td', tr,"", "No Users Yet", [{attName:"colspan", attrVal:6}] )
     }
     else{
-     usersData.forEach((user)=>{
+     usersData.forEach((user, i)=>{
       const tr = createMyOwnElement('tr',content)
       userMainHeads.forEach( head=> createMyOwnElement('td', tr,"",user[head.name]) )
       const td = createMyOwnElement('td',tr)
       const delBtn = createMyOwnElement('button', td, "btn btn-danger mx-3", "delete")
       delBtn.addEventListener('click', ()=> deleteUser(usersData, user.id))
       const editBtn = createMyOwnElement('button', td, "btn btn-warning mx-3", "Edit")
-      editBtn.addEventListener('click', (e)=> edit(user))
+      editBtn.addEventListener('click', (e)=> edit(i))
       const showBtn = createMyOwnElement('button', td, "btn btn-primary mx-3", "Show")
       showBtn.addEventListener("click", (e)=> show(user))
     })    
@@ -84,8 +84,9 @@ show=(user)=>{
 localStorage.setItem("user", JSON.stringify(user))
 window.location.replace("single.html")
 }
-edit=()=>{
-
+edit=( index)=>{
+    localStorage.setItem('editIndex', index)
+    window.location.replace("edit.html")
 }
 
 if(single){
@@ -107,4 +108,25 @@ if(single){
         const tr = createMyOwnElement('tr',single, "alert alert-danger text-center")
         createMyOwnElement('td', tr,"", "No Users Yet", [{attName:"colspan", attrVal:6}] )      
     }
+}
+
+
+const editForm= document.querySelector("#editForm")
+if(editForm){
+    const usersData=readDataFromStorage()
+    let id = localStorage.getItem('editIndex')
+    let user = usersData[id]
+    userMainHeads.forEach(head => {
+     editForm.elements[head.name][head.dataStore]=user[head.name]
+    }); 
+    editForm.addEventListener('submit', (e)=>{
+        e.preventDefault()
+        userMainHeads.forEach(head => {
+            if(!head.isDefault) 
+            usersData[id][head.name]=editForm.elements[head.name][head.dataStore]
+        });
+        console.log(usersData)
+       setDataToStorage(usersData)
+       window.location.replace("index.html")
+    })  
 }
