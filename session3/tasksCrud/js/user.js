@@ -16,7 +16,7 @@ const setDataToStorage = (myData) => {
 }
 const content= document.querySelector("#content")
 const addUser = document.querySelector('#addUser')
-
+const single = document.querySelector("#single")
 const userMainHeads = [
     {name:"id",dataStore:null,  default: Date.now(), isDefault:true},
     {name:"username", dataStore:"value",default:null, isDefault:false},
@@ -67,7 +67,9 @@ drawItems = () =>{
       const delBtn = createMyOwnElement('button', td, "btn btn-danger mx-3", "delete")
       delBtn.addEventListener('click', ()=> deleteUser(usersData, user.id))
       const editBtn = createMyOwnElement('button', td, "btn btn-warning mx-3", "Edit")
+      editBtn.addEventListener('click', (e)=> edit(user))
       const showBtn = createMyOwnElement('button', td, "btn btn-primary mx-3", "Show")
+      showBtn.addEventListener("click", (e)=> show(user))
     })    
     }
 }
@@ -78,3 +80,31 @@ deleteUser= (usersData, id, tr) =>{
      drawItems()
 }
 
+show=(user)=>{
+localStorage.setItem("user", JSON.stringify(user))
+window.location.replace("single.html")
+}
+edit=()=>{
+
+}
+
+if(single){
+    try
+    {
+        let user = JSON.parse(localStorage.getItem("user"))
+        if(!user) throw new Error()
+    const tr = createMyOwnElement('tr',single)
+    userMainHeads.forEach( head=> createMyOwnElement('td', tr,"",user[head.name]) )
+    const td = createMyOwnElement('td',tr)
+    const delBtn = createMyOwnElement('button', td, "btn btn-danger mx-3", "delete")
+    delBtn.addEventListener('click', ()=> deleteUser(usersData, user.id))
+    const editBtn = createMyOwnElement('button', td, "btn btn-warning mx-3", "Edit")
+    editBtn.addEventListener('click', (e)=> edit(user))
+    const showBtn = createMyOwnElement('button', td, "btn btn-primary mx-3", "Show")
+    showBtn.addEventListener("click", (e)=> show(user))
+    }
+    catch(e){
+        const tr = createMyOwnElement('tr',single, "alert alert-danger text-center")
+        createMyOwnElement('td', tr,"", "No Users Yet", [{attName:"colspan", attrVal:6}] )      
+    }
+}
