@@ -38,33 +38,36 @@ if(addUser){
     })
 }
 
-//elementType,classes, parentElement, attributes =[], textContent
-const createMyOwnElement = (element, parent, classes, textContent,attributes)=>{
+const createMyOwnElement = (element, parent, classes="", textContent="",attributes=[])=>{
     const el = document.createElement(element)
-
+    parent.appendChild(el)
+    if(classes!="") el.classList = classes
+    if(textContent!="") el.textContent = textContent
+    attributes.forEach(attribute=>{
+        el.setAttribute(attribute.attName, attribute.attrVal)
+    })
     return el
 }
 
 const content= document.querySelector("#content")
 if(content){
     if(usersData.length==0){
-        let tr= document.createElement('tr')
-        tr.classList="alert alert-danger text-center"
-        content.appendChild(tr)
-        let td = document.createElement('td')
-        td.textContent="No Users Yet"
-        td.setAttribute("colspan", 6)
-        tr.appendChild(td)
+        const tr = createMyOwnElement('tr',content, "alert alert-danger text-center")
+        createMyOwnElement('td', tr,"", "No Users Yet", [{attName:"colspan", attrVal:6}] )
 }
     else{
-        usersData.forEach(user=>{
-            let tr= document.createElement('tr')
-            content.appendChild(tr)
-            userMainHeads.forEach(head=>{
-                td= document.createElement('td')
-                td.textContent=user[head.name]
-                tr.appendChild(td)
-            })
-        })    
+     usersData.forEach((user, index)=>{
+      const tr = createMyOwnElement('tr',content)
+      userMainHeads.forEach( head=> createMyOwnElement('td', tr,"",user[head.name]) )
+      const td = createMyOwnElement('td',tr)
+      const delBtn = createMyOwnElement('button', td, "btn btn-danger mx-3", "delete")
+      const editBtn = createMyOwnElement('button', td, "btn btn-warning mx-3", "Edit")
+      const showBtn = createMyOwnElement('button', td, "btn btn-primary mx-3", "Show")
+      showBtn.addEventListener("click", (e)=> editUser(user.id))
+    })    
     }
+}
+
+editUser = (id) =>{
+    alert(id)
 }
