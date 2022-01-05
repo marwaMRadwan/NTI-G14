@@ -1,4 +1,3 @@
-users => create, update, show all users, delete user , show single user
-add.html => name, gender, email, married(true, false)
-edit.html
-index.html => table => users
+bank => customers
+add new customer => name, address, phone, accNum (5000), intial balance
+add , showall, delete
