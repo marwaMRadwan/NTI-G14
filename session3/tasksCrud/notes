@@ -1,3 +1,14 @@
 bank => customers
 add new customer => name, address, phone, accNum (5000), intial balance
 add , showall, delete
+
+customer {
+    name:"",
+    address:"",
+    phone:"",
+    accNum: 5000,
+    intialBalane:1000,
+    transactions:[
+        {transactionType:"add or withdraw", val:500}
+    ]
+}

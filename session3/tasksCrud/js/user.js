@@ -24,7 +24,6 @@ const userMainHeads = [
     {name:"gender", dataStore:"value",default:null, isDefault:false},
     {name:"isMarried", dataStore:"checked",default:null, isDefault:false},
 ]
-
 if(addUser){
     addUser.addEventListener("submit", function(e){
         e.preventDefault()
@@ -40,7 +39,6 @@ if(addUser){
         window.location.replace("index.html")
     })
 }
-
 const createMyOwnElement = (element, parent, classes="", textContent="",attributes=[])=>{
     const el = document.createElement(element)
     parent.appendChild(el)
@@ -51,7 +49,6 @@ const createMyOwnElement = (element, parent, classes="", textContent="",attribut
     })
     return el
 }
-
 drawItems = () =>{
     content.innerHTML=""
     const usersData=readDataFromStorage()
@@ -79,7 +76,6 @@ deleteUser= (usersData, id, tr) =>{
     setDataToStorage(newData)
      drawItems()
 }
-
 show=(user)=>{
 localStorage.setItem("user", JSON.stringify(user))
 window.location.replace("single.html")
@@ -88,7 +84,6 @@ edit=( index)=>{
     localStorage.setItem('editIndex', index)
     window.location.replace("edit.html")
 }
-
 if(single){
     try
     {
@@ -109,8 +104,6 @@ if(single){
         createMyOwnElement('td', tr,"", "No Users Yet", [{attName:"colspan", attrVal:6}] )      
     }
 }
-
-
 const editForm= document.querySelector("#editForm")
 if(editForm){
     const usersData=readDataFromStorage()
