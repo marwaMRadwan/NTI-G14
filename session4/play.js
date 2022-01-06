@@ -29,14 +29,14 @@
 //     if(err) console.log(res)
 //     else console.log("it is not a number")
 // })
-let x
+// let x
 //promises
-const myPromise = (val) => new Promise((resolve, reject)=>{
-    setTimeout(()=>{
-        if(typeof val=="number") {x=20; resolve(val)}
-        else {x=25;reject("not a number")}
-    }, 1500)
-})
+// const myPromise = (val) => new Promise((resolve, reject)=>{
+//     setTimeout(()=>{
+//         if(typeof val=="number") {x=20; resolve(val)}
+//         else {x=25;reject("not a number")}
+//     }, 1500)
+// })
 
 // console.log(myPromise(5))
 // console.log(x)
@@ -49,19 +49,19 @@ const myPromise = (val) => new Promise((resolve, reject)=>{
 // })
 
 //async await
-async function a(){
-    try{
-        b = await myPromise("h")
-        y= await myPromise(15)
-        console.log(b)
-        console.log(y)
-    }
-    catch(e){
-        console.log(e)
-    }
-}
+// const a = async ()=>{
+//     try{
+//         b = await myPromise("h")
+//         y= await myPromise(15)
+//         console.log(b)
+//         console.log(y)
+//     }
+//     catch(e){
+//         console.log(e)
+//     }
+// }
 
-a()
+// a()
 // class object
 // class animal human male female{makeShopping, cook, talk kter, }
 
