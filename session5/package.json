@@ -1,0 +1,15 @@
+{
+  "name": "session5",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": "marwa radwan",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^4.0.0",
+    "validator": "^13.7.0"
+  }
+}
