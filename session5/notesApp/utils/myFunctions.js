@@ -35,5 +35,12 @@ class MyFunctions{
         writeDataToJSON(data)
         console.log(chalk.green("data Added successfuly"))
     }
+    static deleteUser = (id) =>{
+        const data = readFromJSON()
+        const newData = data.filter((user) => user.id != id)
+        if(newData.length == data.length) return console.log("no user Found")
+        writeDataToJSON(newData)
+        console.log("User Deleted")
+    }
 }
 module.exports = MyFunctions
