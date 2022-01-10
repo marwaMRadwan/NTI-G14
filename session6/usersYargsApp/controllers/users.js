@@ -7,12 +7,14 @@ checkUniqueEmail= (email, data)=>{
 searchUser = (attr, val, data)=>{
     return data.findIndex(ele=> val == ele[attr])
 }
+
 class User{   
     static addUser(userData, fileName){
         try{
             const data = DealWithJSON.readFromJSON(fileName)
             if(!validator.isEmail(userData.email)) throw new Error("invalid email format")
             // if(checkUniqueEmail(userData.email, data)) throw new Error("Email used before")
+            console.log(searchUser('email',userData.email, data))
             if(searchUser('email',userData.email, data)!=-1) throw new Error("Email used before")
             data.push(userData)
             DealWithJSON.writeDataToJSON(fileName, data)

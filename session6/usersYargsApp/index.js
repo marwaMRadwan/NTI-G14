@@ -53,3 +53,10 @@ yargs.argv
 
 
 // User.writeData('ahmed', "gdgshg")
+
+
+/*
+builed:{
+    attrName:{},
+    attrVal:{}
+} */
