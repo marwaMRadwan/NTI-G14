@@ -1,0 +1,51 @@
+users.json => [{name:"", email:"", age:""},......]
+user => id=> random (npm), name, email, age
+
+addNewUser => email true, required, unique
+singleUserData => (userid)=> print user singleUserData
+        - userId : 123
+        - name : marwa
+        - email : marwa@test.com
+        - age : 36
+        (if user not found "user not found check user id")
+showAll users => fetch all users data (if empty show no users yet)
+deleteUser => (userId) => delete or (if user not found "user not found check user id")
+edit => (userId, newData) => edit or (if user not found "user not found check user id")
+
+
+module => class User(edit, single, checkUnique) , addUser, readAll, 
+validator, yargs
+
+class User(edit, del, show single, add) checkUnique, 
+
+module => user (all function), read json, check
+unique, validator, yargs, fs
+
+gatData , insert , class(add, sing, edit, del)
+fs, unique, validator, yargs
+
+
+
+module 1 : user.js
+User{
+        addNew(){}
+        showAll
+        checkUniqueEmail
+        searchUser
+        showSingle
+        delete
+        edit
+}
+module 2 : dealWithData.js
+Deal{
+        readFromJSON
+        writeToJSON
+}
+
+//installs
+validator, yargs, uniqid
+
+//build-in module 
+fs
+
+
