@@ -1,5 +1,6 @@
 const User = require("./controllers/users")
 const yargs = require("yargs")
+const uniqid = require("uniqid")
 userMainData = ["name", "age", "email"]
 yargs.command({
     command:"addNewUser",
@@ -10,7 +11,7 @@ yargs.command({
     },
     handler: function(argv){
         try{
-            userData={}
+            userData={id:uniqid()}
             userMainData.forEach(data=> userData[data]=argv[data])
             User.addUser(userData, "users")    
         }
