@@ -7,12 +7,13 @@ yargs.command({
     builder:{
         name:{type:"string", demandOption:true},
         age:{type:"number", default:20},        
-        email:{type:"string", demandOption:true}    
+        email:{type:"string", demandOption:true}   
     },
     handler: function(argv){
         try{
             userData={id:uniqid()}
             userMainData.forEach(data=> userData[data]=argv[data])
+            /* useData = {name:argv.name, age:argv.age......} */
             User.addUser(userData, "users")    
         }
         catch(e){
