@@ -1,4 +1,4 @@
-const user = require("./controllers/users")
+const User = require("./controllers/users")
 const yargs = require("yargs")
 
 yargs.command({
@@ -33,3 +33,6 @@ yargs.command({
 })
 
 yargs.argv
+
+
+User.writeData('ahmed', "gdgshg")
