@@ -1,14 +1,29 @@
 const User = require("./controllers/users")
 const yargs = require("yargs")
-
+userMainData = ["name", "age", "email"]
 yargs.command({
     command:"addNewUser",
+    builder:{
+        name:{type:"string", demandOption:true},
+        age:{type:"number", default:20},        
+        email:{type:"string", demandOption:true}    
+    },
     handler: function(argv){
-        console.log("addNewUser")
+        try{
+            userData={}
+            userMainData.forEach(data=> userData[data]=argv[data])
+            User.addUser(userData, "users")    
+        }
+        catch(e){
+            console.log(e.message)
+        }
     }
 })
 yargs.command({
     command:"singleUserData",
+    builder:{
+        data:{}
+    },
     handler: function(argv){
         console.log("singleUserData")
     }
@@ -35,4 +50,4 @@ yargs.command({
 yargs.argv
 
 
-User.writeData('ahmed', "gdgshg")
+// User.writeData('ahmed', "gdgshg")
