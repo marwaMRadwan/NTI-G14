@@ -1,0 +1,7 @@
+--> new projects
+npm init --y => package.json
+npm i packName .....
+
+-----------
+--> downloads pro, old projects
+npm i
