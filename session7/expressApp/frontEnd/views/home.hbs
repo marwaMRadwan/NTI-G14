@@ -1,4 +1,27 @@
+{{>header}}
 {{>navbar}}
-    hello from HBS file
-    <h3>{{name}}</h3>
+    <section class="my-3 container">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>albumId</th>
+                    <th>id</th>
+                    <th>title</th>
+                    <th>url</th>
+                    <th>thumbnailUrl</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each allData}}
+                <tr>
+                    <td>{{this.albumId}}</td>
+                    <td>{{this.id}}</td>
+                    <td>{{this.title}}</td>
+                    <td><img src="{{this.url}}" height="50" width="50"></td>
+                    <td><img src="{{this.thumbnailUrl}}" height="50" width="50"></td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </section>
 {{>footer}}
