@@ -1,3 +1,4 @@
+//npm i package_name@ver --dev --g --save
 //process args - yargs - fetch api - nodemon
 // console.log(process.argv)
 // com = process.argv[2]
@@ -23,5 +24,7 @@ yargs.command({
         console.log(`name: ${argv.name} - age: ${argv.age}`)
     }
 })
-
+yargs.command({
+    command:"abc"
+})
 yargs.argv

@@ -13,6 +13,7 @@ getApiData = async(apiLink, callback)=>{
     try{
         let data = await fetch(apiLink)
         let JsonData = await data.json()
+        // let JsonData = (await (await fetch(apiLink)).json())
         callback(JsonData, false)
     }
     catch(e){
