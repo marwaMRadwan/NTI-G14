@@ -86,10 +86,11 @@ class User{
         const data = readFromJSON()
         const userIndex = this.searchUserByID(id, data)
         if(userIndex !=-1){
-            data.splice(userIndex, 1)
+            data.splice(userIndex, 1 )
             writeDataToJSON(data)
             res.redirect("/")    
         }
+        else res.redirect('/err')
     }
 }
 module.exports = User
