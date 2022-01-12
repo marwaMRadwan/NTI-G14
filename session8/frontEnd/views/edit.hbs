@@ -2,7 +2,13 @@
 {{>navbar}}
 <section class="container my-3">
     <h2>Edit User Data</h2>
-    <form>
+{{#if isNotFound}}
+            <div class="alert alert-danger">
+                user not found
+            </div>        
+        {{else}}
+        
+        <form>
         <div class="mb-3">
             <input class="form-control" name="name" placeholder="Enter your name" value = {{user.name}}>
         </div>
@@ -19,5 +25,6 @@
             <button class="btn btn-primary">Edit Data</button>
         </div>
     </form>
+    {{/if}}
 </section>
 {{>footer}}

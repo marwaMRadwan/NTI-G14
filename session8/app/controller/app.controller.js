@@ -55,17 +55,30 @@ class User{
         return userIndex
     }
     static singleUser = (req,res) => {
+        let isNotFound = false
         const id = req.params.id
         const data = readFromJSON()
         const userIndex = this.searchUserByID(id, data)
-        res.render("single", {pageTitle:"User Details", user:data[userIndex]})
+        if(userIndex==-1) isNotFound=true
+        res.render("single", {
+            pageTitle:"User Details", 
+            user:data[userIndex], 
+            isNotFound
+        })
     }
 
     static editUser = (req,res)=>{
+        let isNotFound = false
         const id = req.params.id
         const data = readFromJSON()
         const userIndex = this.searchUserByID(id, data)
-        res.render("edit", {pageTitle:"Edit user", user:data[userIndex]})
+        if(userIndex==-1) isNotFound=true
+        res.render("edit", {
+            pageTitle:"Edit User Details", 
+            user:data[userIndex], 
+            isNotFound
+        })
+
     }
 
     static deleteUser = (req,res)=>{
