@@ -1,0 +1,30 @@
+{{>header}}
+{{>navbar}}
+<section class="container my-3">
+    <div class="d-flex justify-content-end mb-3">
+        <a href="/add" class="btn btn-primary">Add New User</a>
+    </div>
+    <div>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>name</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>marwa</td>
+                    <td>
+                        <a class="btn btn-primary" href="/single/1">Show</a>
+                        <a class="btn btn-warning" href="/edit/1">Edit</a>
+                        <a class="btn btn-danger " href="/delete/1">Delete</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+{{>footer}}

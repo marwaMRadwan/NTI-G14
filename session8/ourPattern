@@ -1,0 +1,17 @@
+m=> model => data
+v=> view => views (for user)
+c=> controller => logic
+
+
+models => .json
+app=>
+    controller => function call with each route
+    routes => routes , communicate with controller
+frontend => views, public , layouts
+
+index.js
+
+
+users => name, email, age, address
+add, edit, del, show single user, show all users,
+error 404
