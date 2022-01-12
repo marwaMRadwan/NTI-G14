@@ -50,14 +50,33 @@ class User{
         writeDataToJSON(data)
         res.redirect("/")
     }
+    static searchUserByID = (id, data)=>{
+        let userIndex = data.findIndex(el=> el.id == id)
+        return userIndex
+    }
+    static singleUser = (req,res) => {
+        const id = req.params.id
+        const data = readFromJSON()
+        const userIndex = this.searchUserByID(id, data)
+        res.render("single", {pageTitle:"User Details", user:data[userIndex]})
+    }
+
     static editUser = (req,res)=>{
-        res.render("edit", {pageTitle:"Edit User"})
+        const id = req.params.id
+        const data = readFromJSON()
+        const userIndex = this.searchUserByID(id, data)
+        res.render("edit", {pageTitle:"Edit user", user:data[userIndex]})
     }
+
     static deleteUser = (req,res)=>{
-        res.send("delete")
-    }
-    static singleUser = (req,res)=>{
-        res.render("single", {pageTitle:"User Details"})
+        const id = req.params.id
+        const data = readFromJSON()
+        const userIndex = this.searchUserByID(id, data)
+        if(userIndex !=-1){
+            data.splice(userIndex, 1)
+            writeDataToJSON(data)
+            res.redirect("/")    
+        }
     }
 }
 module.exports = User

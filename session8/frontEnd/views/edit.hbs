@@ -4,16 +4,16 @@
     <h2>Edit User Data</h2>
     <form>
         <div class="mb-3">
-            <input class="form-control" name="name" placeholder="Enter your name">
+            <input class="form-control" name="name" placeholder="Enter your name" value = {{user.name}}>
         </div>
         <div class="mb-3">
-            <input class="form-control" name="age" placeholder="Enter your age">
+            <input class="form-control" name="age" placeholder="Enter your age" value="{{user.age}}">
         </div>
         <div class="mb-3">
-            <input class="form-control" name="email" placeholder="Enter your email">
+            <input class="form-control" name="email" placeholder="Enter your email" value="{{user.email}}">
         </div>
         <div class="mb-3">
-            <input class="form-control" name="address" placeholder="Enter your address">
+            <input class="form-control" name="address" placeholder="Enter your address" value="{{user.address}}">
         </div>
         <div class="mb-3">
             <button class="btn btn-primary">Edit Data</button>
