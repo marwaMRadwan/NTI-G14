@@ -20,13 +20,18 @@ const writeDataToJSON = (data) =>{
 }
 class User{
     static showAll = (req, res) => {
-        res.render("all", {pageTitle: "All Users"})
+        const data = readFromJSON()
+        const isEmpty = data.length==0
+        res.render("all", {pageTitle: "All Users", data, isEmpty})
     }
     //get method
     static addUser = (req, res)=>{
        if(Object.keys(req.query).length != 0) {
             const data = readFromJSON()
-            data.push(req.query) 
+            let user = req.query
+            if(data.length == 0) user.id=1
+            else user.id = data[data.length-1].id +1
+            data.push(user) 
             writeDataToJSON(data)
             res.redirect("/")
         }
@@ -38,7 +43,10 @@ class User{
     }
     static addUserLogic = (req,res)=>{
         const data = readFromJSON()
-        data.push(req.body) 
+        let user = req.body
+        if(data.length == 0) user.id=1
+        else user.id = data[data.length-1].id +1
+        data.push(user) 
         writeDataToJSON(data)
         res.redirect("/")
     }

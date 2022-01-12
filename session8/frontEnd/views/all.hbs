@@ -15,15 +15,24 @@
                 </tr>
             </thead>
             <tbody>
+                {{#if isEmpty}}
                 <tr>
-                    <td>1</td>
-                    <td>marwa</td>
+                    <td colspan="3" class="bg-danger text-white ">No Users Yet</td>
+                </tr>
+                {{else}}
+                {{#each data}}
+                <tr>
+                    <td>{{this.id}}</td>
+                    <td>{{this.name}}</td>
                     <td>
-                        <a class="btn btn-primary" href="/single/1">Show</a>
-                        <a class="btn btn-warning" href="/edit/1">Edit</a>
-                        <a class="btn btn-danger " href="/delete/1">Delete</a>
+                        <a class="btn btn-primary" href="/single/{{this.id}}">Show</a>
+                        <a class="btn btn-warning" href="/edit/{{this.id}}">Edit</a>
+                        <a class="btn btn-danger " href="/delete/{{this.id}}">Delete</a>
                     </td>
                 </tr>
+                {{/each}}
+
+                {{/if}}
             </tbody>
         </table>
     </div>
