@@ -1,4 +1,5 @@
 const fs = require("fs")
+const ValiadtorController= require("./validator.controller")
 const readFromJSON = () =>{
     let data
     try{
@@ -39,11 +40,24 @@ class User{
     }
     //post method
     static addUserPost = (req, res)=>{
-        res.render("addPost", {pageTitle:"add new user(post)"})
+        const user = {name:"", email:"", age:"", address:""}
+        res.render("addPost", {pageTitle:"add new user(post)", user, errors:{}})
     }
     static addUserLogic = (req,res)=>{
-        const data = readFromJSON()
         let user = req.body
+        let errors ={}
+        //"" 0 +> false     12+=> true
+        if(!ValiadtorController.isEmptyString(user.name)) 
+            errors.name="name is required"
+        if(!ValiadtorController.isValidEmail(user.email)) 
+            errors.email="enter a valid mail"
+        if(Object.keys(errors).length>0) 
+            return res.render('addPost', {
+                pageTitle:"add new user",
+                errors,
+                user
+            })
+        const data = readFromJSON()
         if(data.length == 0) user.id=1
         else user.id = data[data.length-1].id +1
         data.push(user) 
@@ -78,7 +92,7 @@ class User{
             user:data[userIndex], 
             isNotFound
         })
-
+//{name:"a"} user = {...x, id:1} {name:a, id:1}
     }
 
     static deleteUser = (req,res)=>{
