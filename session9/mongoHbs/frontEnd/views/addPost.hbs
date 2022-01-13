@@ -1,0 +1,30 @@
+{{>header}}
+{{>navbar}}
+<section class="container my-3">
+    <h2>Add New User (POST)</h2>
+    <form method="post">
+        <div class="mb-3">
+            <input class="form-control" name="name" placeholder="Enter your name" value="{{user.name}}">
+            {{#if errors.name}}
+                <div class="text-danger"><span>{{errors.name}}</span></div>
+            {{/if}}
+        </div>
+        <div class="mb-3">
+            <input class="form-control" name="age" placeholder="Enter your age"  value="{{user.age}}">
+        </div>
+        <div class="mb-3">
+            <input class="form-control" name="email" placeholder="Enter your email"  value="{{user.email}}">
+            {{#if errors.email}}
+                <div class="text-danger"><span>{{errors.email}}</span></div>
+            {{/if}}
+            
+        </div>
+        <div class="mb-3">
+            <input class="form-control" name="address" placeholder="Enter your address"  value="{{user.address}}">
+        </div>
+        <div class="mb-3">
+            <button class="btn btn-primary">Add Data</button>
+        </div>
+    </form>
+</section>
+{{>footer}}

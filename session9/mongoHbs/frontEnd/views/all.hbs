@@ -1,0 +1,40 @@
+{{>header}}
+{{>navbar}}
+<section class="container my-3">
+    <div class="d-flex justify-content-end mb-3">
+        <a href="/add" class="btn btn-primary mx-3">Add New User</a>
+        <a href="/addPost" class="btn btn-primary mx-3">Add New User(Post)</a>
+    </div>
+    <div>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>name</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#if isEmpty}}
+                <tr>
+                    <td colspan="3" class="bg-danger text-white ">No Users Yet</td>
+                </tr>
+                {{else}}
+                {{#each data}}
+                <tr>
+                    <td>{{this._id}}</td>
+                    <td>{{this.name}}</td>
+                    <td>
+                        <a class="btn btn-primary" href="/single/{{this._id}}">Show</a>
+                        <a class="btn btn-warning" href="/edit/{{this._id}}">Edit</a>
+                        <a class="btn btn-danger " href="/delete/{{this._id}}">Delete</a>
+                    </td>
+                </tr>
+                {{/each}}
+
+                {{/if}}
+            </tbody>
+        </table>
+    </div>
+</section>
+{{>footer}}

@@ -1,0 +1,22 @@
+{{>header}}
+{{>navbar}}
+<section class="container my-3">
+    <div class="border border-3 border-primary p-4">
+        {{#if isNotFound}}
+            <div class="alert alert-danger">
+                user not found
+            </div>        
+        {{else}}
+        <h5>Name: {{user.name}}</h5>
+        <h6>age: {{user.age}}</h6>
+        <p>
+            address: {{user.address}}
+        </p>
+        <p>
+            email: {{user.email}}
+        </p>
+        
+        {{/if}}
+    </div>
+</section>
+{{>footer}}
