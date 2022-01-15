@@ -1,17 +1,5 @@
 const router = require('express').Router()
-const UserModel = require('../models/user.model')
-
-router.post('/addUser', (req, res)=>{
-    const data = new UserModel(req.body)
-    data.save()
-    .then(()=>res.send({
-        data,
-        message:"data inserted successfuly"
-    }))
-    .catch(e=> res.send({
-        data:e.message,
-        message:"error inserting data"
-    }))
-})
-
-module.exports=router
+const userController = require("../controller/user.controller")
+router.post('/addUser', userController.addUser)
+router.post('/add', userController.add)
+module.exports = router
