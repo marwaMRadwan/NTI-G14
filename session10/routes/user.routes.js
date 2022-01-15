@@ -9,7 +9,8 @@ router.get('/all', userController.showAll)
 //single user
 router.get("/all/:id", userController.single)
 //delete one
-    
+router.delete("/all/:id", userController.delUser)
 //edit 
+router.patch("/all/:id", userController.editUser)
 
 module.exports = router
