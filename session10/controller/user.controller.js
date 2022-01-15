@@ -51,7 +51,7 @@ class User{
         try{
             const data = await UserModel.findById(req.params.id)
             if(!data) res.send({
-                data:null,
+                data,
                 message:"user not found"
             })
             res.send({

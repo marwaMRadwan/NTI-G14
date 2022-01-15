@@ -1,2 +1,11 @@
 npm init --y
 npm i express mongoose validator
+
+//books
+title(unique), category (it, engineering, medical), authorName, createTime, numOfPages(>100)
+
+
+model
+insert
+show all
+show single
