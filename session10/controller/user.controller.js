@@ -1,5 +1,6 @@
 const UserModel = require('../models/user.model')
 class User{
+    //add then catch
     static addUser = (req, res) => {
         const data = new UserModel(req.body)
         data.save()
@@ -12,6 +13,7 @@ class User{
                 message: "error inserting data"
             }))
     }
+    //add async 
     static add = async (req, res) => {
         try {
             const data = new UserModel(req.body)
@@ -28,5 +30,44 @@ class User{
             })
         }
     }
+    //show all
+    static showAll = async(req, res)=>{
+        try{
+            const data = await UserModel.find()
+            res.send({
+                data,
+                message:"data fetched"
+            })
+        }
+        catch(e){
+            res.send({
+                data:e.message,
+                message:"error in fetching"
+            })
+        }
+    }
+    //single user
+    static single = async(req, res)=>{
+        try{
+            const data = await UserModel.findById(req.params.id)
+            if(!data) res.send({
+                data:null,
+                message:"user not found"
+            })
+            res.send({
+                data,
+                message:"data fetched"
+            })
+        }
+        catch(e){
+            res.send({
+                data:e.message,
+                message:"error in fetching"
+            })
+        }
+    }
+    //delete one
+    
+    //edit 
 }
 module.exports=User
