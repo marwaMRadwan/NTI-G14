@@ -28,3 +28,12 @@ add address, edit , delete , show
 
 npm init --y
 npm i dotenv mongoose express validator
+
+
+
+post
+title,
+type=> img, txt, video,
+content,
+file
+tags,=> [{}]
