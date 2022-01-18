@@ -81,7 +81,8 @@ class User {
     static login = async(req, res)=>{
         try{
             let user = await userModel.loginUser(req.body.email, req.body.password)
-            res.status(200).send({apiStatus:true, data:user, message:"logged in"})
+            let token = await user.generateToken()
+            res.status(200).send({apiStatus:true, data:{user, token}, message:"logged in"})
         }
         catch(e){
             res.status(500).send({apiStatus:false, data:e.message, message:"invalid data"})
