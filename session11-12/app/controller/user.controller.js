@@ -88,5 +88,8 @@ class User {
             res.status(500).send({apiStatus:false, data:e.message, message:"invalid data"})
         }
     }
+    static me = async(req,res)=>{
+        res.status(200).send({apiStatus:true, data:req.user, message:"data featched"})
+    }
 }
 module.exports = User

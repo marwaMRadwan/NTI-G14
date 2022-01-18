@@ -92,7 +92,7 @@ userSchema.statics.loginUser = async(email,password)=>{
 const jwt = require("jsonwebtoken")
 userSchema.methods.generateToken = async function(){
     const user = this
-    const token = jwt.sign({_id:user._id}, "123")
+    const token = jwt.sign({_id:user._id}, "123") //user{_id:1}
     user.tokens = user.tokens.concat({token})
     await user.save()
     return token
