@@ -6,6 +6,6 @@ router.get("/all", userController.showAll)
 router.get("/all/:id", userController.showSingle)
 router.delete("/all", userController.deleteAll)
 router.delete("/all/:id", userController.deleteSingle)
-
+router.post("/login", userController.login)
 
 module.exports = router
