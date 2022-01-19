@@ -1,0 +1,61 @@
+mongoose model
+user
+    - name
+    - age
+    - password
+    - email
+    - addresses => more than one each address has title, details
+    - profile img
+    - created at, updated at
+    - gender
+    - status
+    - job title
+    - phone
+    - skills => name of skill
+    - malStatus => if male
+
+    
+register
+login
+logout
+edit profile
+change status
+change password
+forget password
+add address, edit , delete , show
+
+
+
+npm init --y
+npm i dotenv mongoose express validator
+
+
+
+post
+title,
+type=> img, txt, video,
+content,
+file
+tags,=> [{}]
+
+
+
+--------------------------------------------------------
+teacher - student
+
+-add grade => teacher
+- show grade => student
+
+
+modules => 1 teacher/grade -  2 student/grade
+
+permission
+id module        show delete add update userrole
+1                   1  1      1    1    teacher
+2                   1   0     0    0    student
+
+
+user{ name, age, role}
+
+
+

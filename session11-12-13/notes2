@@ -1,0 +1,39 @@
+- send email
+- upload image
+- make relations
+- multilevel auth
+
+register => done
+login => done
+all => done
+single user=> done
+delete all => done
+delete single=> done
+my profile => done
+logout => done
+logout all => done
+
+activate user
+change profile image
+change password
+edit profile
+add address
+edit single address
+delete address
+set default address
+=========================
+**projects
+- title => between 2 => 50, unique
+- description
+- start date => <end
+- end date  => >start
+
+- for only logged in users
+    - add projects
+    - show his own projects
+    - delete all his projects
+    - delete single project
+    - edit project
+
+
+
