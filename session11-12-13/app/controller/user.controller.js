@@ -25,7 +25,7 @@ class User {
     }
     static sendOtp=async(req,res)=>{
         try{
-            if(status) throw new Error("already active")
+            if(req.user.status) throw new Error("already active")
             req.user.otp = otpGenerator.generate(12);
             await req.user.save()
             emailHelper(req.user.email, `${req.user.otp}`)

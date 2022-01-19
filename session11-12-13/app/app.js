@@ -8,6 +8,8 @@ app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 
 const userRoutes = require("../routes/user.routes")
-app.use("/user",userRoutes)
+const projectRoutes = require("../routes/project.routes")
 
+app.use("/user",userRoutes)
+app.use('/project', projectRoutes)
 module.exports = app
