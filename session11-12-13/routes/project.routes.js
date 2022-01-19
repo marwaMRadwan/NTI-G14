@@ -15,6 +15,18 @@ router.post("/add",auth, async(req,res)=>{
         res.send(e.message)
     }
 })
-
+router.get("/myPro", auth,async(req,res)=>{
+    try{
+        let pros = await projectModel.find({userId: req.user._id})
+        res.send(pros)
+    }
+    catch(e){
+        res.send(e)
+    }
+})
+router.get('/myVpro', auth, async(req,res)=>{
+    await req.user.populate("myProjects")
+    res.send(req.user.myProjects)
+})
 module.exports= router
 

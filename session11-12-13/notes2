@@ -18,14 +18,9 @@
 change profile image
 set default address
 =========================
-**projects
-- title => between 2 => 50, unique
-- description
-- start date => <end
-- end date  => >start
 
 - for only logged in users
-    - add projects
+    - add projects => done
     - show his own projects
     - delete all his projects
     - delete single project
@@ -33,6 +28,6 @@ set default address
 
 
 - upload image
-- make relations
+- make relations 
 - multilevel auth
 

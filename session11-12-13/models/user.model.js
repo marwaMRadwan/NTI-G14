@@ -68,7 +68,12 @@ const userSchema = new mongoose.Schema({
 },
 {timestamps:true}
 )
-
+//virtual relation
+userSchema.virtual("myProjects", {
+    ref:"Project",
+    localField:"_id",
+    foreignField:"userId"
+})
 //handle response
 userSchema.methods.toJSON = function(){
     const user = this.toObject()
