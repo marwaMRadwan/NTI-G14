@@ -1,11 +1,14 @@
 const userModel = require("../../models/user.model")
 const emailHelper = require("../helper/sendMail.helper")
+const otpGenerator = require('otp-generator')
+            
 class User {
     static addUser = async (req, res) => {
         try {
             let user = new userModel(req.body)
+            user.otp = otpGenerator.generate(12);
             await user.save()
-            emailHelper(user.email, "<h2>hello</h2><p>hello from our app</p><hr>")
+            emailHelper(user.email, `http://localhost:3000/user/activate/${user.otp}/${user._id}`)
             res.status(200).send({
                 apiStatus: true,
                 data: user,
@@ -18,6 +21,51 @@ class User {
                 data: e.message,
                 message: "error adding user data"
             })
+        }
+    }
+    static sendOtp=async(req,res)=>{
+        try{
+            if(status) throw new Error("already active")
+            req.user.otp = otpGenerator.generate(12);
+            await req.user.save()
+            emailHelper(req.user.email, `${req.user.otp}`)
+            res.status(200).send({
+                apiStatus: true,
+                data: req.user.otp,
+                message: "data inserted successfuly"
+            })
+        }
+        catch (e) {
+            res.status(500).send({
+                apiStatus: false,
+                data: e.message,
+                message: "error adding user data"
+            })
+    }
+}
+    static activateUser = async(req,res)=>{
+        try{
+            let user = await userModel.findOne({otp:req.params.otp,_id:req.params.id})
+            if(!user) throw new Error("not a user")
+            user.status=true
+            user.otp=""
+            await user.save()
+            res.send("done")
+        }
+        catch(e){
+            res.send(e.message)
+        }
+    }
+    static activateUserLoggedIN = async(req,res)=>{
+        try{
+            if(req.user.otp != req.body.otp) throw new Error("invalid code")
+            req.user.status=true
+            req.user.otp=""
+            await req.user.save()
+            res.send("done")
+        }
+        catch(e){
+            res.send(e.message)
         }
     }
     static showAll = async (req, res) => {
@@ -116,5 +164,6 @@ class User {
             res.status(500).send({apiStatus:false, data:e.message})
         }
     }
+
 }
 module.exports = User

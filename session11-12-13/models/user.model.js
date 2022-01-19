@@ -60,7 +60,11 @@ const userSchema = new mongoose.Schema({
     img:{
         type:String
     },
-    tokens:[ {token:{type:String, required:true}} ]
+    tokens:[ {token:{type:String, required:true}} ],
+    otp:{
+        type:String,
+        default:Date.now()
+    }
 },
 {timestamps:true}
 )

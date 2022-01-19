@@ -10,7 +10,9 @@ router.delete("/all/:id",auth, userController.deleteSingle)
 router.get("/me", auth, userController.me)
 router.post("/logout", auth, userController.logOut)
 router.post("/logoutAll", auth, userController.logOutAll)
-
+router.get("/activate/:otp/:id", userController.activateUser)
+router.post("/activateWithLogin",auth, userController.activateUserLoggedIN)
+router.get("/sendOTP", auth, userController.sendOtp)
 const authIsMale = require("../middleware/isMale")
 router.post("/setMalStatus",auth, authIsMale, async(req,res)=>{
     res.send("hello")

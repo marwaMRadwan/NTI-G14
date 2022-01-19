@@ -1,25 +1,21 @@
-- send email
-- upload image
-- make relations
-- multilevel auth
+- send email => done
+- register => done
+- login => done
+- all => done
+- single user=> done
+- delete all => done
+- delete single=> done
+- my profile => done
+- logout => done
+- logout all => done
+- activate user =>done
+//change password
+//edit profile
+//add address
+//edit single address
+//delete address
 
-register => done
-login => done
-all => done
-single user=> done
-delete all => done
-delete single=> done
-my profile => done
-logout => done
-logout all => done
-
-activate user
 change profile image
-change password
-edit profile
-add address
-edit single address
-delete address
 set default address
 =========================
 **projects
@@ -36,4 +32,7 @@ set default address
     - edit project
 
 
+- upload image
+- make relations
+- multilevel auth
 
