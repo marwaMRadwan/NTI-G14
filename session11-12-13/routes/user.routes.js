@@ -25,8 +25,17 @@ router.post('/profile', auth,upload.single('image'), async function (req, res) {
     req.user.img = `${req.file.path}${path.extname(req.file.originalname)}`
     await req.user.save()
     res.send(req.user)
-    // res.send(path.extname(req.file.originalname))
 })
+const uploadWithStorage = require("../middleware/uploadWithStorage")
+router.post("/myProfile", auth, uploadWithStorage.single("image"), async(req,res)=>{
+    try{
+        req.user.img=req.file.path
+        await req.user.save()
+        res.send(req.user)
 
-
+    }
+    catch(e){
+        res.send(e)
+    }
+})
 module.exports = router
