@@ -17,5 +17,16 @@ const authIsMale = require("../middleware/isMale")
 router.post("/setMalStatus",auth, authIsMale, async(req,res)=>{
     res.send("hello")
 })
+const upload = require("../middleware/uploadFile")
+const path=require("path")
+const fs = require("fs")
+router.post('/profile', auth,upload.single('image'), async function (req, res) {
+    fs.rename(req.file.path, `${req.file.path}${path.extname(req.file.originalname)}`, ()=>{})
+    req.user.img = `${req.file.path}${path.extname(req.file.originalname)}`
+    await req.user.save()
+    res.send(req.user)
+    // res.send(path.extname(req.file.originalname))
+})
+
 
 module.exports = router
