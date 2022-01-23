@@ -8,9 +8,19 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title:string = 'session15';
   imgSrc : string = "assets/logo.png"
+  c :number = 0
   htmlData= "<div class=\"alert alert-primary\" >hello</div>"
+  data:any
   show():string {
     return "hello"
   }
-  
+  handleClick(){
+    console.log('hello')
+  }
+  addCounter(){
+    this.c++
+  }
+  minCounter(){
+    this.c--
+  }
 }

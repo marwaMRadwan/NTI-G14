@@ -14,4 +14,17 @@
     <h5>Property Binding</h5>
     <img [src]="imgSrc" width="50" height="50"><br>
     <section [innerHTML]="htmlData"></section>
+    <hr>
+    <h5>Event Binding</h5>
+    <button (click)="handleClick()">click</button>
+    <br>
+    <button class="btn btn-success" (click)="addCounter()">+</button>
+    <h6>{{ c }}</h6>
+    <button class="btn btn-danger" (click)="minCounter()">-</button>
+<!-- input keyup keydown onmouseover hover -->
+<hr>
+<h3>Two Way Binding</h3>
+<!-- ngModel import app.module -->
+<input [(ngModel)]="data" ><br>
+    {{data}}
 </section>
