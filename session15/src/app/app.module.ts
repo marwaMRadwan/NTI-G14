@@ -10,6 +10,7 @@ import { FooterComponent } from './shared/footer/footer.component';
 import { SliderComponent } from './pages/home/slider/slider.component';
 import { ServicecardComponent } from './pages/home/servicecard/servicecard.component';
 import { ContactformComponent } from './pages/home/contactform/contactform.component';
+import { UsersComponent } from './users/users.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ContactformComponent } from './pages/home/contactform/contactform.compo
     FooterComponent,
     SliderComponent,
     ServicecardComponent,
-    ContactformComponent
+    ContactformComponent,
+    UsersComponent
   ],
   imports: [
     BrowserModule,

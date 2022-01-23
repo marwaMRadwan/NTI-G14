@@ -1,0 +1,68 @@
+<section class="container my-5">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th [rowSpan]="3">#</th>
+                <th [rowSpan]="3">id</th>
+                <th [rowSpan]="3">name</th>
+                <th [rowSpan]="3">username</th>
+                <th [rowSpan]="3">email</th>
+                <th [colSpan]="6">address</th>
+                <th [rowSpan]="3">phone</th>
+                <th [rowSpan]="3">webSite</th>
+                <th [rowSpan]="2" [colSpan]="3">company</th>
+                
+            </tr>
+            <tr>
+                <th [rowSpan]="2">street</th>
+                <th [rowSpan]="2">suite</th>
+                <th [rowSpan]="2">city</th>
+                <th [rowSpan]="2">zipcode</th>
+                <th [colSpan]="2">geo</th>
+                
+            </tr>
+            <tr> 
+                <th>lat</th>
+                <th>lng</th>
+                <th >name</th>
+                <th >catchPhrase</th>
+                <th >bs</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="
+                let u of users; 
+                let i=index; 
+                let o=odd; 
+                let e=even; 
+                let f=first; 
+                let l=last"
+                [ngClass]="{'bg-primary':o, 'bg-success':e, 'bg-warning':f, 'bg-danger':l, 'border-3':o}"
+                
+                >
+                <td>
+                    {{i}}-
+                    odd: {{o}}-
+                    even: {{e}}-
+                    first: {{f}} - 
+                    last: {{l}}
+                </td>
+                <td>{{u.id}}</td>
+                <td>{{u.name}}</td>
+                <td>{{u.username}}</td>
+                <td>{{u.email}}</td>
+                <td>{{u.address.street}}</td>
+                <td>{{u.address.suite}}</td>
+                <td>{{u.address.city}}</td>
+                <td>{{u.address.zipcode}}</td>
+                <td>{{u.address.geo.lat}}</td>
+                <td>{{u.address.geo.lng}}</td>
+                <td>{{u.phone}}</td>
+                <td>{{u.website}}</td>
+                <td>{{u.company.name}}</td>
+                <td>{{u.company.catchPhrase}}</td>
+                <td>{{u.company.bs}}</td>
+            </tr>
+        </tbody>
+    </table>
+</section>
