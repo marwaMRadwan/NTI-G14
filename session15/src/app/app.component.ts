@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'session15';
+  title:string = 'session15';
+  imgSrc : string = "assets/logo.png"
+  htmlData= "<div class=\"alert alert-primary\" >hello</div>"
+  show():string {
+    return "hello"
+  }
+  
 }

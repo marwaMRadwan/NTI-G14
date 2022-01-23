@@ -1,1 +1,17 @@
-<app-homepage></app-homepage>
+<!-- <app-homepage></app-homepage> -->
+<section class="container my-3">
+    <h3>One Way Binding</h3>
+    <h5>Interpolation</h5>
+    {{ title }}<br>
+    {{5+3}}<br>
+    {{5>9}}<br>
+    {{ show() }}<br>
+    <img src="{{imgSrc}}" width="50" height="50"><br>
+    <input value="" (keyup)="0"  #myinput><br>
+    <li>{{myinput.value}}</li>
+    {{htmlData}}
+    <hr>
+    <h5>Property Binding</h5>
+    <img [src]="imgSrc" width="50" height="50"><br>
+    <section [innerHTML]="htmlData"></section>
+</section>
