@@ -1,8 +1,6 @@
 <section class="container my-4">
     <h4 class="text-center text-primary">Services</h4>
     <div class="row">
-        <article class="col-md-4 col-12 p-2" *ngFor="let s of services">
-            <app-sercard [ser]=s></app-sercard>
-        </article>
+      <app-sercard *ngFor="let s of services|slice:0:3" [ser]=s class="col-md-4 col-12 p-2" ></app-sercard>
     </div>
 </section>
