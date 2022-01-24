@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
@@ -10,6 +10,7 @@ import { AllusersComponent } from './pages/allusers/allusers.component';
 import { SingleuserComponent } from './pages/singleuser/singleuser.component';
 import { SliderComponent } from './pages/home/shared/slider/slider.component';
 import { ServicesComponent } from './pages/home/shared/services/services.component';
+import { PlaygroundComponent } from './playground/playground.component';
 
 @NgModule({
   declarations: [
@@ -20,11 +21,13 @@ import { ServicesComponent } from './pages/home/shared/services/services.compone
     AllusersComponent,
     SingleuserComponent,
     SliderComponent,
-    ServicesComponent
+    ServicesComponent,
+    PlaygroundComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
