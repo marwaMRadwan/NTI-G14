@@ -1,0 +1,9 @@
+    <div class="border border-primary">
+        <div *ngIf="ser.imgUrl; else noImage">
+            <img class="img-fluid" [src]="ser.imgUrl" >
+        </div>
+        <ng-template #noImage>
+            <img class="img-fluid" src="assets/services/p.jpg" >
+        </ng-template>
+        <h5 class="m-1">{{ser.serviceName}}</h5>
+    </div>

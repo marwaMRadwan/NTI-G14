@@ -11,6 +11,9 @@ import { SingleuserComponent } from './pages/singleuser/singleuser.component';
 import { SliderComponent } from './pages/home/shared/slider/slider.component';
 import { ServicesComponent } from './pages/home/shared/services/services.component';
 import { PlaygroundComponent } from './playground/playground.component';
+import { ChildComponent } from './communication/child/child.component';
+import { ParentComponent } from './communication/parent/parent.component';
+import { SercardComponent } from './pages/home/shared/sercard/sercard.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,10 @@ import { PlaygroundComponent } from './playground/playground.component';
     SingleuserComponent,
     SliderComponent,
     ServicesComponent,
-    PlaygroundComponent
+    PlaygroundComponent,
+    ChildComponent,
+    ParentComponent,
+    SercardComponent
   ],
   imports: [
     BrowserModule,

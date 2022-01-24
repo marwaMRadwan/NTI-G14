@@ -10,8 +10,8 @@
         <h4>hello</h4>
         </div>
     </ng-template> -->
-    <input class="form-control" [(ngModel)]="monNum">
-    <div [ngSwitch]="monNum">
+    <!-- <input class="form-control" [(ngModel)]="monNum">
+    <div [ngSwitch]="monNum"> -->
         <!-- <div class="text-center p-3" *ngSwitchCase="'1'">Jan</div>
         <div class="text-center p-3" *ngSwitchCase="'2'">Feb</div>
         <div class="text-center p-3" *ngSwitchCase="'3'">Mar</div>
@@ -23,12 +23,19 @@
         <div class="text-center p-3" *ngSwitchCase="'9'">Sep</div>
         <div class="text-center p-3" *ngSwitchCase="'10'">Oct</div>
         <div class="text-center p-3" *ngSwitchCase="'11'">Nov</div> -->
-        <ng-container *ngFor="let m of months;let i = index">
+        <!-- <ng-container *ngFor="let m of months;let i = index">
             <div class="text-center p-3" *ngSwitchCase="i+1">{{m}}</div>
         </ng-container>
         <div class="text-center p-3" *ngSwitchDefault="">Please enter a valid Month Number</div>
         
-    </div>
+    </div> -->
+    <!-- <input class="form-control" [(ngModel)]="monNum" (input)="filterData()">
+    <div *ngFor="let p of result">
+        <li>{{p.title}}</li>
+    </div> -->
+    {{d|date:'medium'}}<br>
+    {{users|json}}<br>
+    {{n| number:'3.2-5'}}
 </section>
 <!-- <ng-container *ngFor="let m of months;let i = index">
     <div class="text-center p-3" >{{m}}</div>
