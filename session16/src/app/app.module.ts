@@ -5,12 +5,20 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { FooterComponent } from './shared/footer/footer.component';
+import { HomeComponent } from './pages/home/home.component';
+import { AllusersComponent } from './pages/allusers/allusers.component';
+import { SingleuserComponent } from './pages/singleuser/singleuser.component';
+import { SliderComponent } from './pages/home/shared/slider/slider.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    HomeComponent,
+    AllusersComponent,
+    SingleuserComponent,
+    SliderComponent
   ],
   imports: [
     BrowserModule,

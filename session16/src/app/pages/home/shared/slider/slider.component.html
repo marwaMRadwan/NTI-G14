@@ -1,0 +1,8 @@
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div  *ngFor="let slide of images; let first=first" 
+      [ngClass]="{'carousel-item':true, 'active':first}">
+        <img [src]="slide" class="d-block w-100">
+      </div>
+    </div>
+  </div>
