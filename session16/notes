@@ -1,0 +1,4 @@
+home => localhost:4200
+all users => localhost:4200/users
+single User=> localhost:4200/users/userId
+404
