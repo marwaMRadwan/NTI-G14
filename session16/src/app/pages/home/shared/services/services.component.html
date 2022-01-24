@@ -1,0 +1,16 @@
+<section class="container my-4">
+    <h4 class="text-center text-primary">Services</h4>
+    <div class="row">
+        <article class="col-md-4 col-12 p-2" *ngFor="let ser of services">
+            <div class="border border-primary">
+                <div *ngIf="ser.imgUrl; else noImage">
+                    <img class="img-fluid" [src]="ser.imgUrl" >
+                </div>
+                <ng-template #noImage>
+                    <img class="img-fluid" src="assets/services/p.jpg" >
+                </ng-template>
+                <h5 class="m-1">{{ser.serviceName}}</h5>
+            </div>
+        </article>
+    </div>
+</section>

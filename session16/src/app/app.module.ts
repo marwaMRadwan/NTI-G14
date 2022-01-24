@@ -9,6 +9,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { AllusersComponent } from './pages/allusers/allusers.component';
 import { SingleuserComponent } from './pages/singleuser/singleuser.component';
 import { SliderComponent } from './pages/home/shared/slider/slider.component';
+import { ServicesComponent } from './pages/home/shared/services/services.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { SliderComponent } from './pages/home/shared/slider/slider.component';
     HomeComponent,
     AllusersComponent,
     SingleuserComponent,
-    SliderComponent
+    SliderComponent,
+    ServicesComponent
   ],
   imports: [
     BrowserModule,
