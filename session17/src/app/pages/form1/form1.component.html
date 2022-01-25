@@ -1,0 +1,8 @@
+<div>{{register.value|json}}</div>
+<form #register="ngForm" (ngSubmit)="handleForm(register)">
+    <input placeholder="name" name="name" ngModel>
+    <input placeholder="age" name="age" ngModel>
+    <input placeholder="email" name="email" ngModel>
+    <input placeholder="address" name="address" ngModel>
+    <button>add</button>
+</form>
