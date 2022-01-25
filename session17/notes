@@ -1,0 +1,19 @@
+1- in app.module:
+    import { HttpClientModule } from '@angular/common/http'
+    add HttpClientModule in imports
+2- generate service
+    ng g s serName
+3- inside service
+    import { HttpClient } from '@angular/common/http';
+    inside constructor create object from HttpClient
+    constructor(private _http:HttpClient) { }
+4- create method inside service to make api request
+readApi():Observable<any>{
+    return this._http.get('https://jsonplaceholder.typicode.com/posts')
+  }
+5- inside component
+  - import service
+  - create object from service inside constructor
+  - subscribe service method
+
+  
