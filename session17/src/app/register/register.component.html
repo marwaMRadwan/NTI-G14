@@ -1,0 +1,39 @@
+<!-- minlength maxlength required email pattern -->
+<section class="my-4 container">
+    <form #addUser="ngForm" (ngSubmit)="handelAddUser(addUser)">
+        <div class="mb-3">
+            <input class="form-control" name="name" ngModel placeholder="name"
+            #name="ngModel"
+            required minlength="3" maxlength="20"
+            >
+            <div class="mt-2 alert alert-danger"
+             *ngIf="name.invalid && (name.touched || addUser.submitted)">
+                <p *ngIf="name.errors?.['required']">Name is required</p>
+                <p *ngIf="name.errors?.['minlength']">Name must be between 3 and 20 characters</p>
+            </div>
+        </div>
+        <div class="mb-3">
+            <input class="form-control" name="age" #age="ngModel" ngModel placeholder="age">
+        </div>
+        <div class="mb-3">
+            <input class="form-control" name="password" #password="ngModel" ngModel placeholder="password"> 
+            <!-- pattern=""> -->
+        </div>
+        <div class="mb-3">
+            <input class="form-control" name="email" #email="ngModel" ngModel placeholder="email" email>
+        </div>
+        <div class="mb-3">
+           <select name="gender" #gender="ngModel" ngModel  class="form-control">
+               <option value="male">Male</option>
+               <option value="female">Female</option>
+           </select>
+        </div>
+        <div class="mb-3" *ngIf="gender.value=='male'">
+            <input class="form-control" name="malStatus" #malStatus="ngModel" ngModel placeholder="malStatus">
+        </div>
+        <div class="mb-3">
+            <button class="btn btn-primary">Add</button>
+            <!-- [disabled]="addUser.invalid" -->
+        </div>
+    </form>
+</section>

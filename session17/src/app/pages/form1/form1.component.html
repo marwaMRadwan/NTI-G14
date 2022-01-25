@@ -1,8 +1,20 @@
-<div>{{register.value|json}}</div>
+<div>
+    value : {{register.value|json}}
+    valid: {{register.valid}}<br>
+    invalid: {{register.invalid}}<br>
+    touched: {{register.touched}}<br>
+    submitted: {{register.submitted}}<br>
+</div>
 <form #register="ngForm" (ngSubmit)="handleForm(register)">
-    <input placeholder="name" name="name" ngModel>
-    <input placeholder="age" name="age" ngModel>
-    <input placeholder="email" name="email" ngModel>
-    <input placeholder="address" name="address" ngModel>
+    <input placeholder="name" name="name" #name="ngModel" ngModel required minlength="3" maxlength="20">
+    <div>
+        value : {{name.value|json}}
+    valid: {{name.valid}}<br>
+    invalid: {{name.invalid}}<br>
+    touched: {{name.touched}}<br>
+    </div>
+    <input placeholder="age" name="age" ngModel #age="ngModel">
+    <input placeholder="email" name="email" ngModel #email="ngModel">
+    <input placeholder="address" name="address" ngModel #addres="ngModel">
     <button>add</button>
 </form>
