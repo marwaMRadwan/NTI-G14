@@ -18,4 +18,5 @@ my profile=> change image, delete single, deleta all
 
 
 
-
+  // environment.flag = false   ==> invalid
+  // x= environment
