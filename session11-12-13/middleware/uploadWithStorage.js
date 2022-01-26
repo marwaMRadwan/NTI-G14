@@ -13,9 +13,9 @@ const storage = multer.diskStorage({
 const upload = multer({
     storage,
     limits:{fileSize:200000000},
-    fileFilter: function(req,file,cb){
-        if( path.extname(file.originalname)!='pdf') return cb("invalid data", false)
-        cb(null, true)
-    }
+    // fileFilter: function(req,file,cb){
+    //     if( path.extname(file.originalname)!='pdf') return cb("invalid data", false)
+    //     cb(null, true)
+    // }
 })
 module.exports = upload
