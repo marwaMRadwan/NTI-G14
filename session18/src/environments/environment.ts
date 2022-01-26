@@ -4,7 +4,9 @@
 
 export const environment:any = {
   production: false,
-  flag:true
+  flag:true,
+  commonApiUrl :'http://localhost:3000/api'
+
 };
 
 /*

@@ -1,1 +1,22 @@
-<p>allusers works!</p>
+<table class="table table-bordered" *ngIf="isloaded">
+    <thead>
+        <tr>
+            <th>_id</th>
+            <th>name</th>
+            <th>age</th>
+            <th>email</th>
+            <th>gender</th>
+            <th>image</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of allUsers">
+            <th>{{user._id}}</th>
+            <th>{{user.name}}</th>
+            <th>{{user.age}}</th>
+            <th>{{user.email}}</th>
+            <th>{{user.gender}}</th>
+            <th>{{user.image}}</th>
+        </tr>
+    </tbody>
+</table>

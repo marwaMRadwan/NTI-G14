@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http'
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
@@ -14,6 +14,7 @@ import { SingleuserComponent } from './pages/user/singleuser/singleuser.componen
 import { UsercardComponent } from './pages/user/usercard/usercard.component';
 import { AddComponent } from './pages/project/add/add.component';
 import { MyprojectComponent } from './pages/project/myproject/myproject.component';
+import { AuthInterceptor } from './providers/interceptors/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,9 @@ import { MyprojectComponent } from './pages/project/myproject/myproject.componen
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    {provide:HTTP_INTERCEPTORS, useClass:AuthInterceptor, multi:true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
