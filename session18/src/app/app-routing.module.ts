@@ -11,6 +11,7 @@ import { UsercardComponent } from './pages/user/usercard/usercard.component';
 const routes: Routes = [
   {path:"", component:AllusersComponent},
   {path:"login", component:LoginComponent},
+  {path:"register", component:RegisterComponent},
   {path:"user", children:[
     {path:"", component:ProfileComponent},
     {path:"show/:id", component:SingleuserComponent},
