@@ -22,4 +22,7 @@ export class AllusersComponent implements OnInit {
       ()=>{this.isloaded=true}
     )
   }
+  handleDelete(id:string){
+
+  }
 }

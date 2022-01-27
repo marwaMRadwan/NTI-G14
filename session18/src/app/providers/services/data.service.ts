@@ -12,4 +12,8 @@ export class DataService {
   getAllUsers():Observable<any>{
     return this._http.get(`${environment.commonApiUrl}/user/all`)
   }
+  getSingleUser(id:any):Observable<any>{
+    return this._http.get(`${environment.commonApiUrl}/user/all/${id}`)
+  }
+  
 }

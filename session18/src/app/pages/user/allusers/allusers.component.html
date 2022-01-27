@@ -23,7 +23,7 @@
             <th>
                 <button routerLink="/user/show/{{user._id}}" class="mx-2 btn btn-primary">show</button>
                 <button routerLink="/user/edit/{{user._id}}"  class="mx-2 btn btn-warning">edit</button>
-                <button routerLink="/user/delete/{{user._id}}"  class="mx-2 btn btn-danger">delete</button>
+                <button (click)="handleDelete(user._id)"  class="mx-2 btn btn-danger">delete</button>
             </th>
         </tr>
     </tbody>
