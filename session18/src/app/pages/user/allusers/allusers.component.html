@@ -16,7 +16,15 @@
             <th>{{user.age}}</th>
             <th>{{user.email}}</th>
             <th>{{user.gender}}</th>
-            <th>{{user.img}} <img src="http://localhost:3000/files/{{user.img}}" width="50" height="50"></th>
+            <th>
+                <img *ngIf="user.img; else NoImg" src="http://localhost:3000/files/{{user.img}}" width="50" height="50">
+                <ng-template #NoImg>User has no image</ng-template>
+            </th>
+            <th>
+                <button routerLink="/user/show/{{user._id}}" class="mx-2 btn btn-primary">show</button>
+                <button routerLink="/user/edit/{{user._id}}"  class="mx-2 btn btn-warning">edit</button>
+                <button routerLink="/user/delete/{{user._id}}"  class="mx-2 btn btn-danger">delete</button>
+            </th>
         </tr>
     </tbody>
 </table>

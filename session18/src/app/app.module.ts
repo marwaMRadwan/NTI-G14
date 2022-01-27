@@ -15,6 +15,7 @@ import { UsercardComponent } from './pages/user/usercard/usercard.component';
 import { AddComponent } from './pages/project/add/add.component';
 import { MyprojectComponent } from './pages/project/myproject/myproject.component';
 import { AuthInterceptor } from './providers/interceptors/auth.interceptor';
+import { Error404Component } from './pages/error404/error404.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { AuthInterceptor } from './providers/interceptors/auth.interceptor';
     SingleuserComponent,
     UsercardComponent,
     AddComponent,
-    MyprojectComponent
+    MyprojectComponent,
+    Error404Component
   ],
   imports: [
     BrowserModule,
