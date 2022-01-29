@@ -21,7 +21,6 @@ export class UploadImageComponent implements OnInit {
     reader.onload = (_event) => {
       this.imgURL = reader.result;
     }
-
   }
   onUpload(){
     const formData = new FormData()

@@ -17,6 +17,7 @@ import { MyprojectComponent } from './pages/project/myproject/myproject.componen
 import { AuthInterceptor } from './providers/interceptors/auth.interceptor';
 import { Error404Component } from './pages/error404/error404.component';
 import { UploadImageComponent } from './upload-image/upload-image.component';
+import { TestComponent } from './test/test.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { UploadImageComponent } from './upload-image/upload-image.component';
     AddComponent,
     MyprojectComponent,
     Error404Component,
-    UploadImageComponent
+    UploadImageComponent,
+    TestComponent
   ],
   imports: [
     BrowserModule,
