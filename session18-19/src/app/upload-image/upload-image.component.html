@@ -3,9 +3,8 @@
 </form> -->
 <div class="mb-3">
   <input type="file" (change)="onChange($event)">
-  <img *ngIf="myFile.path" [src]="myFile.path">
-  {{myFile|json}}
-</div>
+  <img *ngIf="imgURL!=''" [src]="imgURL" height="50" width="50">
+  </div>
 <div class="mb-3">
   <button (click)="onUpload()">add image</button>
 </div>

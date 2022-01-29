@@ -12,9 +12,16 @@ export class UploadImageComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  imgURL:any=""
   onChange(event:any){
     console.log(event.target.files[0])
     this.myFile= event.target.files[0]
+    var reader = new FileReader();
+    reader.readAsDataURL(event.target.files[0]);
+    reader.onload = (_event) => {
+      this.imgURL = reader.result;
+    }
+
   }
   onUpload(){
     const formData = new FormData()
