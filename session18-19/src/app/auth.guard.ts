@@ -19,3 +19,5 @@ this._route.navigateByUrl("/login?msg='please login first'")
   }
 
 }
+// 0=>10  11=>20 21=>31     10    0
+//.g=find().skip(skipCount = (count*pageNumber)).get(count)
