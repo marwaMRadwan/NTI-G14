@@ -1,0 +1,11 @@
+<!-- <form>
+
+</form> -->
+<div class="mb-3">
+  <input type="file" (change)="onChange($event)">
+  <img *ngIf="myFile.path" [src]="myFile.path">
+  {{myFile|json}}
+</div>
+<div class="mb-3">
+  <button (click)="onUpload()">add image</button>
+</div>
